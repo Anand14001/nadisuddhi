@@ -336,3 +336,26 @@ footer[id] {
     transform: none !important;
   }
 }
+
+/* Subtle, refined scrollbar for modals */
+.modal-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(230, 226, 248, 0.25) transparent;
+}
+
+.modal-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(230, 226, 248, 0.25);
+  border-radius: 9999px;
+}
+
+.modal-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(230, 226, 248, 0.45);
+}

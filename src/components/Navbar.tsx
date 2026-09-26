@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { SITE_METADATA } from '../data/content';
-import { Menu, X, Calendar, Sparkles } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 
 interface NavbarProps {
   onOpenBooking: () => void;
@@ -147,26 +147,15 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
         {/* CTA Button & Tablet/Mobile Controls */}
         <div className="flex items-center gap-3 sm:gap-4 shrink-0">
-          {/* Tablet & Desktop Primary CTA: "Book Session" */}
+          {/* Desktop & Tablet Primary CTA: "Book Session" (hidden on mobile/smaller screens) */}
           <button
             type="button"
             id="navbar-book-session-btn"
             onClick={onOpenBooking}
-            className="hidden sm:inline-flex items-center gap-2 px-[clamp(1.25rem,1.6vw,2.25rem)] py-[clamp(0.625rem,0.75vw,1rem)] rounded-full text-eyebrow uppercase font-bold tracking-wider text-[#ffffff] bg-[#2433b3] hover:bg-[#1b268a] hover:-translate-y-0.5 transition-all duration-200 shadow-md shadow-[#2433b3]/30 active:scale-95 cursor-pointer border border-[#2433b3] whitespace-nowrap"
+            className="hidden md:inline-flex items-center gap-2 px-[clamp(1.25rem,1.6vw,2.25rem)] py-[clamp(0.625rem,0.75vw,1rem)] rounded-full text-eyebrow uppercase font-bold tracking-wider text-[#ffffff] bg-[#2433b3] hover:bg-[#1b268a] hover:-translate-y-0.5 transition-all duration-200 shadow-md shadow-[#2433b3]/30 active:scale-95 cursor-pointer border border-[#2433b3] whitespace-nowrap group"
           >
-            <Sparkles className="w-3.5 h-3.5 text-white shrink-0" />
             <span>Book Session</span>
-          </button>
-
-          {/* Mobile direct mini book button: "Book Session" */}
-          <button
-            type="button"
-            id="navbar-mobile-book-btn"
-            onClick={onOpenBooking}
-            className="sm:hidden px-3.5 py-2 rounded-full text-xs uppercase font-bold tracking-wider text-[#ffffff] bg-[#2433b3] hover:bg-[#1b268a] flex items-center gap-1.5 cursor-pointer shadow-sm active:scale-95 whitespace-nowrap"
-          >
-            <Calendar className="w-3.5 h-3.5 text-white" />
-            <span>Book Session</span>
+            <ArrowRight className="w-3.5 h-3.5 text-white shrink-0 group-hover:translate-x-0.5 transition-transform" />
           </button>
 
           {/* Menu toggle button for Mobile AND Tablet (< 1024px) */}
@@ -203,7 +192,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
                     key={link.href}
                     href={link.href}
                     onClick={(e) => handleLinkClick(e, link.href)}
-                    className={`text-base sm:text-lg py-3 px-4 rounded-2xl border transition-all flex items-center justify-between cursor-pointer ${
+                    className={`text-base sm:text-lg py-3 px-4 rounded-2xl border transition-all flex items-center justify-between cursor-pointer group ${
                       isActive
                         ? 'text-[#2433b3] font-bold bg-[#2433b3]/10 border-[#2433b3]/30 shadow-sm'
                         : 'text-[#181126] hover:text-[#4338ca] hover:bg-slate-50 border-transparent font-medium'
@@ -212,15 +201,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
                     <span className="flex items-center gap-2.5">
                       <span>{link.label}</span>
                     </span>
-                    <span
-                      className={`text-xs font-bold ${
+                    <ArrowRight
+                      className={`w-4 h-4 transition-transform ${
                         isActive
-                          ? 'text-white bg-[#2433b3] px-2.5 py-1 rounded-full'
-                          : 'text-[#4338ca]'
+                          ? 'text-[#2433b3] translate-x-0.5'
+                          : 'text-[#4338ca] group-hover:translate-x-1'
                       }`}
-                    >
-                      {isActive ? 'Current' : '→'}
-                    </span>
+                    />
                   </a>
                 );
               })}
@@ -233,10 +220,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
                   setIsMobileMenuOpen(false);
                   onOpenBooking();
                 }}
-                className="w-full py-4 rounded-full font-bold text-xs sm:text-sm uppercase tracking-wider text-[#ffffff] bg-[#2433b3] hover:bg-[#1b268a] flex items-center justify-center gap-2 shadow-xl shadow-[#2433b3]/30 cursor-pointer"
+                className="w-full py-4 rounded-full font-bold text-xs sm:text-sm uppercase tracking-wider text-[#ffffff] bg-[#2433b3] hover:bg-[#1b268a] flex items-center justify-center gap-2 shadow-xl shadow-[#2433b3]/30 cursor-pointer group"
               >
-                <Sparkles className="w-4 h-4 text-white" />
                 <span>Book Session</span>
+                <ArrowRight className="w-4 h-4 text-white shrink-0 group-hover:translate-x-0.5 transition-transform" />
               </button>
             </div>
           </div>

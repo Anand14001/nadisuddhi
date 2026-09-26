@@ -1,6 +1,6 @@
 import React from 'react';
 import { SITE_METADATA } from '../data/content';
-import { Sparkles, MapPin, Globe, Shield } from 'lucide-react';
+import { ArrowRight, MapPin, Globe } from 'lucide-react';
 
 interface FooterProps {
   onOpenBooking: () => void;
@@ -86,10 +86,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking }) => {
               type="button"
               id="footer-book-btn"
               onClick={onOpenBooking}
-              className="px-[clamp(1.5rem,1.8vw,2.5rem)] py-[clamp(0.75rem,1vw,1.25rem)] rounded-full text-eyebrow font-bold uppercase text-[#ffffff] bg-[#2433b3] hover:bg-[#1b268a] transition-all flex items-center gap-2 cursor-pointer shadow-lg shadow-[#2433b3]/30 whitespace-nowrap"
+              className="px-[clamp(1.5rem,1.8vw,2.5rem)] py-[clamp(0.75rem,1vw,1.25rem)] rounded-full text-eyebrow font-bold uppercase text-[#ffffff] bg-[#2433b3] hover:bg-[#1b268a] transition-all flex items-center gap-2 cursor-pointer shadow-lg shadow-[#2433b3]/30 whitespace-nowrap group"
             >
-              <Sparkles className="w-3.5 h-3.5 shrink-0 text-[#e6e2f8]" />
               <span>Book Session</span>
+              <ArrowRight className="w-3.5 h-3.5 shrink-0 text-[#e6e2f8] group-hover:translate-x-0.5 transition-transform" />
             </button>
           </div>
         </div>
@@ -104,9 +104,16 @@ export const Footer: React.FC<FooterProps> = ({ onOpenBooking }) => {
 
           <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-body-sm text-[#e6e2f8]/50 measure-wide mx-auto pt-4">
             <p>© {new Date().getFullYear()} Nadisuddhi. All rights reserved.</p>
-            <p className="flex items-center gap-1.5 mt-2 sm:mt-0">
-              <Shield className="w-3.5 h-3.5 text-[#2433b3]" />
-              Authentic Vedic Palm Leaf Ancestry
+            <p className="mt-2 sm:mt-0">
+              Powered by{' '}
+              <a
+                href="https://digital-dude.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#e6e2f8]/80 hover:text-[#ffffff] underline decoration-[#2433b3] decoration-1 underline-offset-4 hover:decoration-[#ffffff] transition-colors font-medium"
+              >
+                Digital Dude
+              </a>
             </p>
           </div>
         </div>
