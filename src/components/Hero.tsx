@@ -14,7 +14,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
       className="relative min-h-[clamp(40rem,100svh,68rem)] pt-[calc(var(--nav-h,5rem)+clamp(2.5rem,7vh,7rem))] pb-[clamp(4.5rem,8vw,10rem)] flex flex-col justify-center items-center overflow-hidden cosmic-stars-bg"
     >
       {/* Interactive Three.js Quantum Particle Nebula */}
-      <div className="absolute inset-0 z-0 pointer-events-none opacity-85">
+      <div className="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none opacity-90">
         <GenerativeArtSceneV3 />
       </div>
 
@@ -28,8 +28,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[clamp(42rem,116vmin,96rem)] aspect-square rounded-full border border-[#2433b3]/[0.05] pointer-events-none" />
       </div>
 
-      {/* Subtle blend gradient overlay */}
-      <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-transparent via-[#140d27]/40 to-[#140d27]" />
+      {/* Subtle blend gradient overlay - balanced to allow edge particles to shine while maintaining typography contrast */}
+      <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-[#140d27]/40 via-transparent to-[#140d27]/80" />
 
       <div className="shell text-center relative z-10 flex flex-col items-center">
         <h1
