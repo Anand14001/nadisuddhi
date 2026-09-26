@@ -11,7 +11,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
   return (
     <section
       id="home"
-      className="relative min-h-[clamp(40rem,100svh,68rem)] pt-[calc(var(--nav-h,5rem)+clamp(2.5rem,7vh,7rem))] pb-[clamp(4.5rem,8vw,10rem)] flex flex-col justify-center items-center overflow-hidden cosmic-stars-bg"
+      className="relative min-h-screen min-h-[100svh] w-full flex flex-col overflow-hidden cosmic-stars-bg"
+      style={{ minHeight: '100svh' }}
     >
       {/* Interactive Three.js Quantum Particle Nebula */}
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0 pointer-events-none opacity-90">
@@ -31,46 +32,62 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
       {/* Subtle blend gradient overlay - balanced to allow edge particles to shine while maintaining typography contrast */}
       <div className="absolute inset-0 z-0 pointer-events-none bg-gradient-to-b from-[#140d27]/40 via-transparent to-[#140d27]/80" />
 
-      <div className="shell text-center relative z-10 flex flex-col items-center">
-        <h1
-          id="hero-tagline"
-          className="font-serif-heading text-display font-bold text-[#ffffff] text-balance mb-[clamp(1.5rem,2.2vw,2.75rem)]"
-        >
-          <span className="block">Cleansing Past.</span>
-          <span className="block text-[#ffffff]">Awakening Future.</span>
-        </h1>
+      {/* 1. Dedicated Navbar Clearance Spacer: accurately matches the fixed header height */}
+      <div
+        style={{ height: 'var(--nav-h, 5.5rem)' }}
+        className="w-full shrink-0 pointer-events-none"
+        aria-hidden="true"
+      />
 
-        <p
-          id="hero-subtitle"
-          className="text-lede text-[#e6e2f8]/85 font-normal measure text-pretty tracking-[0.5px] mb-[clamp(2.25rem,3.5vw,4rem)]"
-        >
-          Ancient Nadi Wisdom for Global Seekers — Guided by{' '}
-          <span className="text-[#ffffff] font-semibold underline decoration-[#2433b3] decoration-2 underline-offset-4">
-            Iswariya Sivasamy
-          </span>
-          , International Spiritual & Nadi Advisor.
-        </p>
-
-        {/* Primary Pill CTA Button */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-[clamp(1rem,1.4vw,1.75rem)] w-full">
-          <button
-            type="button"
-            id="hero-primary-cta-btn"
-            onClick={onOpenBooking}
-            className="w-full sm:w-auto px-[clamp(2rem,2.6vw,3.5rem)] py-[clamp(1rem,1.3vw,1.6rem)] rounded-full font-bold text-body-lg text-[#ffffff] bg-[#2433b3] hover:bg-[#1b268a] transition-all duration-300 shadow-xl shadow-[#2433b3]/35 hover:shadow-2xl hover:shadow-[#2433b3]/45 hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-3 cursor-pointer group border border-[#2433b3]"
+      {/* 2. Main Hero Content: occupies available visible vertical space, vertically centered and balanced */}
+      <div
+        className="flex-1 w-full flex flex-col justify-center items-center relative z-10 my-auto"
+        style={{
+          paddingTop: 'clamp(24px, 4vh, 56px)',
+          paddingBottom: 'clamp(32px, 5vh, 72px)',
+        }}
+      >
+        <div className="shell text-center flex flex-col items-center">
+          <h1
+            id="hero-tagline"
+            className="font-serif-heading text-[clamp(2.75rem,5.5vw,6rem)] font-bold text-[#ffffff] leading-[1.08] tracking-tight text-balance mb-[clamp(1.25rem,2.5vh,2.5rem)]"
           >
-            <span>{SITE_METADATA.primaryCtaText}</span>
-            <ArrowRight className="w-5 h-5 shrink-0 text-[#e6e2f8] group-hover:translate-x-1 transition-transform" />
-          </button>
+            <span className="block">Cleansing Past.</span>
+            <span className="block text-[#ffffff]">Awakening Future.</span>
+          </h1>
 
-          <a
-            href="#how-it-helps"
-            id="hero-explore-link"
-            className="text-body-sm font-medium tracking-wide text-[#e6e2f8]/70 hover:text-[#ffffff] transition-colors py-[clamp(0.75rem,1vw,1.25rem)] px-[clamp(1.5rem,2vw,2.5rem)] border border-white/10 hover:border-white/25 rounded-full flex items-center gap-2 whitespace-nowrap"
+          <p
+            id="hero-subtitle"
+            className="text-[clamp(1.05rem,1.45vw,1.5rem)] text-[#e6e2f8]/90 font-normal max-w-[clamp(34rem,62vw,56rem)] text-pretty tracking-wide leading-relaxed mb-[clamp(2rem,4vh,3.5rem)]"
           >
-            <span>Explore The Sacred Process</span>
-            <span className="text-[#e6e2f8]">↓</span>
-          </a>
+            Ancient Nadi Wisdom for Global Seekers — Guided by{' '}
+            <span className="text-[#ffffff] font-semibold underline decoration-[#2433b3] decoration-2 underline-offset-4">
+              Iswariya Sivasamy
+            </span>
+            , International Spiritual & Nadi Advisor.
+          </p>
+
+          {/* Primary Pill CTA Button & Secondary Link */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-[clamp(1rem,1.5vw,1.75rem)] w-full">
+            <button
+              type="button"
+              id="hero-primary-cta-btn"
+              onClick={onOpenBooking}
+              className="w-full sm:w-auto px-[clamp(2.25rem,3vw,3.75rem)] py-[clamp(1rem,1.4vw,1.45rem)] rounded-full font-bold text-[clamp(1rem,1.15vw,1.25rem)] text-[#ffffff] bg-[#2433b3] hover:bg-[#1b268a] transition-all duration-300 shadow-xl shadow-[#2433b3]/35 hover:shadow-2xl hover:shadow-[#2433b3]/50 hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-3 cursor-pointer group border border-[#2433b3]"
+            >
+              <span>{SITE_METADATA.primaryCtaText}</span>
+              <ArrowRight className="w-5 h-5 shrink-0 text-[#e6e2f8] group-hover:translate-x-1 transition-transform" />
+            </button>
+
+            <a
+              href="#how-it-helps"
+              id="hero-explore-link"
+              className="w-full sm:w-auto text-[clamp(0.9rem,1vw,1.0625rem)] font-medium tracking-wide text-[#e6e2f8]/85 hover:text-[#ffffff] transition-colors py-[clamp(1rem,1.35vw,1.4rem)] px-[clamp(1.75rem,2.2vw,2.75rem)] border border-white/15 hover:border-white/30 rounded-full flex items-center justify-center gap-2 whitespace-nowrap bg-white/[0.03] hover:bg-white/[0.08]"
+            >
+              <span>Explore The Sacred Process</span>
+              <span className="text-[#e6e2f8]">↓</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

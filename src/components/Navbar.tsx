@@ -85,16 +85,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
   return (
     <header
       id="main-navbar"
-      className={`fixed top-0 left-0 right-0 z-50 border-b border-slate-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md py-2.5 sm:py-3'
-          : 'bg-white py-3 sm:py-4 lg:py-5'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 border-b border-slate-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.05)] transition-all duration-300"
     >
       <div
         ref={barRef}
-        className="shell-wide flex items-center justify-between gap-[clamp(0.75rem,2vw,3rem)]"
+        className={`transition-all duration-300 ${
+          isScrolled
+            ? 'bg-white/95 backdrop-blur-md py-2.5 sm:py-3'
+            : 'bg-white py-3 sm:py-4 lg:py-5'
+        }`}
       >
+        <div className="shell-wide flex items-center justify-between gap-[clamp(0.75rem,2vw,3rem)]">
         {/* Brand Title Logo — the one flexible item in the bar, so on narrow
             screens it yields to the CTA and menu toggle rather than overflowing. */}
         <a
@@ -179,6 +180,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             {isMobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
           </button>
         </div>
+      </div>
       </div>
 
       {/* Tablet & Mobile Slide-down Drawer with Active Tab Highlighting */}
