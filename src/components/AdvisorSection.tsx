@@ -1,10 +1,21 @@
 import React from 'react';
 import { ADVISOR_DATA } from '../data/content';
-import { Award, Compass, Globe, CheckCircle, ArrowRight } from 'lucide-react';
+import { Award, Compass, Globe, ArrowRight } from 'lucide-react';
+import { US, GB, CA, AE, AU, SG, IN } from 'country-flag-icons/react/3x2';
 
 interface AdvisorSectionProps {
   onOpenBooking: () => void;
 }
+
+const COUNTRY_FLAG_MAP: Record<string, React.ComponentType<{ className?: string }>> = {
+  USA: US,
+  UK: GB,
+  Canada: CA,
+  UAE: AE,
+  Australia: AU,
+  Singapore: SG,
+  India: IN,
+};
 
 export const AdvisorSection: React.FC<AdvisorSectionProps> = ({ onOpenBooking }) => {
   return (
@@ -89,23 +100,30 @@ export const AdvisorSection: React.FC<AdvisorSectionProps> = ({ onOpenBooking })
                   <div className="p-2.5 rounded-xl bg-[#2433b3]/20 border border-[#2433b3]/40 text-[#e6e2f8] shrink-0 mt-0.5">
                     <Globe className="w-5 h-5" />
                   </div>
-                  <div>
+                  <div className="flex-1 min-w-0">
                     <h4 className="text-body-lg font-bold text-[#ffffff] text-balance">
                       Global Reach & Consultations
                     </h4>
                     <p className="text-body-sm text-[#e6e2f8]/75 mt-1.5 leading-relaxed measure text-pretty">
                       Dedicated to providing worldwide seekers with accessible, confidential, and empathetic palm leaf guidance over private high-definition video consultations.
                     </p>
-                    <div className="flex flex-wrap gap-2 mt-3.5">
-                      {ADVISOR_DATA.globalReach.map((country) => (
-                        <span
-                          key={country}
-                          className="px-3 py-1 rounded-full text-body-sm font-semibold bg-[#2433b3]/15 text-[#e6e2f8] border border-[#2433b3]/30 flex items-center gap-1.5"
-                        >
-                          <CheckCircle className="w-3.5 h-3.5 shrink-0 text-[#2433b3]" />
-                          {country}
-                        </span>
-                      ))}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-2.5 mt-3.5">
+                      {ADVISOR_DATA.globalReach.map((country) => {
+                        const FlagComponent = COUNTRY_FLAG_MAP[country];
+                        return (
+                          <div
+                            key={country}
+                            className="px-3.5 py-2 sm:py-1.5 rounded-xl sm:rounded-full text-body-sm font-semibold bg-[#2433b3]/15 text-[#e6e2f8] border border-[#2433b3]/30 flex items-center gap-2.5 shadow-xs hover:bg-[#2433b3]/25 transition-colors"
+                          >
+                            {FlagComponent ? (
+                              <FlagComponent className="w-5 h-3.5 rounded-[2px] shadow-sm shrink-0 object-cover" />
+                            ) : (
+                              <Globe className="w-4 h-4 shrink-0 text-[#60a5fa]" />
+                            )}
+                            <span>{country}</span>
+                          </div>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>

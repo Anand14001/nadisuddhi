@@ -76,7 +76,7 @@ export const ADVISOR_DATA: AdvisorDetail = {
   lineage: '5th-Generation Practitioner',
   origin: 'Originating from Vaitheeswaran Koil, Tamil Nadu',
   pioneeringAchievement: 'The first woman in her family lineage to lead this traditional practice, bridging ancient palm-leaf wisdom with modern spiritual coaching.',
-  globalReach: ['USA', 'UK', 'Canada', 'UAE', 'Australia', 'Singapore', 'India', 'Worldwide']
+  globalReach: ['India', 'USA', 'UK', 'Canada', 'UAE', 'Australia', 'Singapore', 'Worldwide']
 };
 
 export const JOURNEY_STEPS: JourneyStep[] = [
