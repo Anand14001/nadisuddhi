@@ -230,6 +230,26 @@ export const VIDEO_TESTIMONIALS: VideoTestimonial[] = [
     person: null,
     location: null,
   },
+  {
+    id: 'testimonial-07',
+    type: 'youtube',
+    videoId: 'niDK63SbRl4',
+    format: 'portrait',
+    sourceTitle: 'Our Italy client shared soulful experience with us...',
+    summary: 'Soulful experience shared by Italy client',
+    person: null,
+    location: 'Italy',
+  },
+  {
+    id: 'testimonial-08',
+    type: 'youtube',
+    videoId: '-oXAUPVaD9o',
+    format: 'portrait',
+    sourceTitle: 'Mr. Pietro, our client from Italy, just shared his wonderful experience with Maha Sivanadi Astrology',
+    summary: 'Wonderful experience with Maha Sivanadi',
+    person: 'Mr. Pietro',
+    location: 'Italy',
+  },
 ];
 
 /* Photographs supplied by Nadi Sudhi. Intrinsic sizes are the real ones, so the

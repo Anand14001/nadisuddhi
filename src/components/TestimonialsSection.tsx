@@ -16,7 +16,7 @@ const POSTER_VARIANTS: Record<TestimonialFormat, string[]> = {
 };
 
 const SWIPE_THRESHOLD = 40;
-const SET_SIZE = VIDEO_TESTIMONIALS.length; // 6 unique testimonials
+const SET_SIZE = VIDEO_TESTIMONIALS.length;
 // 3 consecutive sets to guarantee seamless infinite looping in both directions
 const TRIPLE_TESTIMONIALS = [
   ...VIDEO_TESTIMONIALS,
@@ -749,7 +749,7 @@ export const TestimonialsSection: React.FC = () => {
           Testimonial {activeItemIndex + 1} of {SET_SIZE}: {activeItem.sourceTitle}
         </p>
 
-        {/* 6 Pagination Dots with pill indicator for active */}
+        {/* Pagination Dots with pill indicator for active */}
         <div className="mt-4 flex items-center justify-center gap-2.5">
           {VIDEO_TESTIMONIALS.map((item, index) => {
             const isActive = index === activeItemIndex;
